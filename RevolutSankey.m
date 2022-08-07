@@ -31,3 +31,13 @@ totalReceived = sum(transfers(transfers > 0))
 datesCell = alldata(2:end,3);
 dates = datetime(datesCell,'InputFormat','yyyy-MM-dd HH:mm:ss', 'Format', 'yyyy-MM-dd');
 
+d = rawdata.data;
+plot(dates(1:end-10),d(1:end-10));
+
+%dates (from end date)
+datesCell = alldata(2:end,4);
+dates = datetime(datesCell,'InputFormat','yyyy-MM-dd HH:mm:ss', 'Format', 'yyyy-MM-dd');
+
+d = rawdata.data;
+plot(dates(1:end-10),d(1:end-10));
+
