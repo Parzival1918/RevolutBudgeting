@@ -4,6 +4,12 @@ alldata = rawdata.textdata;
 data = alldata(2:end,[1,2,5,6]);
 
 %Process the data
+
+%Accounts
+currentAccount = alldata(alldata(:,2)=="Current",[1,3:end]);
+pocketAccount = alldata(alldata(:,2)=="Pocket",[1,3:end]);
+
+%Money spent
 cardPaymentsCell = data(data(:,1)=="CARD_PAYMENT",end);
 cardPayments = zeros([length(cardPaymentsCell),1]);
 for i = 1:length(cardPaymentsCell)
@@ -20,3 +26,8 @@ end
 
 totalSpent = sum(transfers(transfers < 0))
 totalReceived = sum(transfers(transfers > 0))
+
+%dates (from started date)
+datesCell = alldata(2:end,3);
+dates = datetime(datesCell,'InputFormat','yyyy-MM-dd HH:mm:ss', 'Format', 'yyyy-MM-dd');
+
