@@ -68,7 +68,8 @@ for i = 1:length(uniqueDesc)
     infoDescriptions(i,2) = abs(sent);
 end
 
-t = table(uniqueDesc,infoDescriptions(:,1),infoDescriptions(:,2),'VariableNames',["Description","Received","Sent"]);
+t = table([uniqueDesc;"Total"],[infoDescriptions(:,1);sum(infoDescriptions(:,1))],...
+    [infoDescriptions(:,2);sum(infoDescriptions(:,2))],'VariableNames',["Description","Received","Sent"]);
 
 %Sankey diagram text (for https://sankeymatic.com/build/)
 allMoneySectionTxt = "Total";
