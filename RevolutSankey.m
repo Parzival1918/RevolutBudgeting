@@ -78,6 +78,9 @@ for i = 1:length(textLines)
     if infoDescriptions(i,2) ~= 0
         txt = strcat(allMoneySectionTxt," [",string(infoDescriptions(i,2)),"] ",uniqueDesc(i));
         textLines{i} = txt; 
+    elseif infoDescriptions(i,2) == 0 && infoDescriptions(i,1) ~= 0
+        txt = strcat(uniqueDesc{i}," [",string(infoDescriptions(i,1)),"] ",allMoneySectionTxt);
+        textLines{i} = txt; 
     end
 end
 
