@@ -65,7 +65,21 @@ for i = 1:length(uniqueDesc)
     received = sum(all(all>0));
     sent = sum(all(all<0));
     infoDescriptions(i,1) = received;
-    infoDescriptions(i,2) = sent;
+    infoDescriptions(i,2) = abs(sent);
 end
 
 t = table(uniqueDesc,infoDescriptions(:,1),infoDescriptions(:,2),'VariableNames',["Description","Received","Sent"]);
+
+%Sankey diagram text (for https://sankeymatic.com/build/)
+allMoneySectionTxt = "Total";
+textLines = cell([length(uniqueDesc),1]);
+
+for i = 1:length(textLines)
+    if infoDescriptions(i,2) ~= 0
+        txt = strcat(allMoneySectionTxt," [",string(infoDescriptions(i,2)),"] ",uniqueDesc(i));
+        textLines{i} = txt; 
+    end
+end
+
+tableTxt = table(textLines);
+writetable(tableTxt,"SankeyText",'WriteVariableNames',false);
