@@ -7,7 +7,7 @@ A MATALB tool to see statistics of your Revolut statements.
 
 ### How to Use
 
-Download the Revolut statements from their website in .csv form. Once you have the files you can load them in the app to see the statistics (For now you can only load one file at a time in the app).
+Download the Revolut statements from their website in .csv form. Once you have the files you can load them in the app to see the statistics.
 
 Once your data is loaded in the app, you can filter by selecting which account you want to see, the types of transactions you want to see and finally you can select the descriptions you want the app to use for the analysis.
 
